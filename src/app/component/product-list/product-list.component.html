@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Products</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <td class="bold-caption">Code</td>
+      <td class="bold-caption">Name</td>
+      <td class="bold-caption">Product Type</td>
+      <td class="bold-caption">Price</td>
+      <td class="bold-caption">Seller</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products">
+      <td class="btn-link button-pointer" [routerLink]="['/product-data', p.code]">{{p.code}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.productType}}</td>
+      <td>{{p.price}}</td>
+      <td *ngIf="p.sold">
+        <span *ngIf="!isAdmin()">{{p.seller}}</span>
+        <span *ngIf="isAdmin()" class="btn-link button-pointer" [routerLink]="['/user-data', p.seller]">{{p.seller}}</span>
+      </td>
+      <td *ngIf="!p.sold">
+        <span *ngIf="isAdmin()">Not sold yet</span>
+        <button *ngIf="!isAdmin()" class="btn btn-outline-info" (click)="sellProduct(p.code)">Sell</button>
+      </td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="deleteProduct(p.code)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

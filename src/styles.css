@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+
+.button-pointer {
+  cursor: pointer;
+}
+
+.bold-caption {
+  font-weight: bold;
+}

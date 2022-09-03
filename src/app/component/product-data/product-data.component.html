@@ -1,0 +1,18 @@
+<div *ngIf="product" class="container">
+  <h2>Product data</h2>
+  <div class="card-header">
+    <p class="card-title">{{product.code}}</p>
+  </div>
+  <div class="card-body">
+    <div class="card">
+      <div class="card-body">
+        <label class="bold-caption">Name:</label> {{product.name}}<br/>
+        <label class="bold-caption">Product Type:</label> {{product.productType}} <br/>
+        <label class="bold-caption">Price:</label> {{product.price}} <br/>
+        <label  class="bold-caption" *ngIf="product.sold">Seller:&nbsp;</label>
+          <span *ngIf="isAdmin()" class="btn-link button-pointer" [routerLink]="['/user-data', product.seller]">{{product.seller}}</span>
+          <span *ngIf="!isAdmin()">{{product.seller}}</span>
+      </div>
+    </div>
+  </div>
+</div>

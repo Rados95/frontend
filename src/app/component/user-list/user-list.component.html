@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Users</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <td class="bold-caption">Username</td>
+      <td class="bold-caption">First Name</td>
+      <td class="bold-caption">Last Name</td>
+      <td class="bold-caption">Email</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of users">
+      <td class="btn-link button-pointer" [routerLink]="['/user-data', u.username]">{{u.username}}</td>
+      <td>{{u.firstName}}</td>
+      <td>{{u.lastName}}</td>
+      <td>{{u.email}}</td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="deleteUser(u.username)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

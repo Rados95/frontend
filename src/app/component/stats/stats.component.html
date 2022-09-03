@@ -1,0 +1,85 @@
+<div class="container">
+  <h2>Stats</h2>
+  <div class="card-deck">
+    <div *ngIf="bestSeller" class="container">
+      <div class="card-header">
+        <p class="card-title">Best seller</p>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <label class="bold-caption">Username:</label> {{bestSeller.username}}<br/>
+            <label class="bold-caption">First Name:</label> {{bestSeller.firstName}}<br/>
+            <label class="bold-caption">Last Name:</label> {{bestSeller.lastName}} <br/>
+            <label class="bold-caption">Email:</label> {{bestSeller.email}} <br/>
+            <label class="bold-caption">Sold products:&nbsp;</label> <span class="badge badge-warning"
+                                                                           *ngFor="let productCode of bestSellerProductCodes"><span
+            class="btn-link button-pointer" [routerLink]="['/product-data', productCode]">{{productCode}}</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="worstSeller" class="container">
+      <div class="card-header">
+        <p class="card-title">Worst seller</p>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <label class="bold-caption">Username:</label> {{worstSeller.username}}<br/>
+            <label class="bold-caption">First Name:</label> {{worstSeller.firstName}}<br/>
+            <label class="bold-caption">Last Name:</label> {{worstSeller.lastName}} <br/>
+            <label class="bold-caption">Email:</label> {{worstSeller.email}} <br/>
+            <label class="bold-caption">Sold products:&nbsp;</label> <span class="badge badge-warning"
+                                                                           *ngFor="let productCode of worstSellerProductCodes"><span
+            class="btn-link button-pointer" [routerLink]="['/product-data', productCode]">{{productCode}}</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="mostExpensiveProduct" class="container">
+      <div class="card-header">
+        <p class="card-title">Most expensive product</p>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <label class="bold-caption">Code:</label> {{mostExpensiveProduct.code}}<br/>
+            <label class="bold-caption">Name:</label> {{mostExpensiveProduct.name}}<br/>
+            <label class="bold-caption">Product Type:</label> {{mostExpensiveProduct.productType}} <br/>
+            <label class="bold-caption">Price:</label> {{mostExpensiveProduct.price}} <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="cheapestProduct" class="container">
+      <div class="card-header">
+        <p class="card-title">Cheapest product</p>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <label class="bold-caption">Code:</label> {{cheapestProduct.code}}<br/>
+            <label class="bold-caption">Name:</label> {{cheapestProduct.name}}<br/>
+            <label class="bold-caption">Product Type:</label> {{cheapestProduct.productType}} <br/>
+            <label class="bold-caption">Price:</label> {{cheapestProduct.price}} <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="percentageOfSoldProducts" class="container">
+      <div class="card-header">
+        <p class="card-title">Percentage of sold products</p>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <label class="bold-caption">Percentage:</label> {{percentageOfSoldProducts}}<br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

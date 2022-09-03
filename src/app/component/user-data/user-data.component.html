@@ -1,0 +1,16 @@
+<div *ngIf="user" class="container">
+  <h2>User data</h2>
+  <div class="card-header">
+    <p class="card-title">{{user.username}}</p>
+  </div>
+  <div class="card-body">
+    <div class="card">
+      <div class="card-body">
+        <label class="bold-caption">First Name:</label> {{user.firstName}}<br/>
+        <label class="bold-caption">Last Name:</label> {{user.lastName}} <br/>
+        <label class="bold-caption">Email:</label> {{user.email}} <br/>
+        <label class="bold-caption">Sold products:&nbsp;</label> <span class="badge badge-warning" *ngFor="let productCode of productCodes"><span class="btn-link button-pointer" [routerLink]="['/product-data', productCode]">{{productCode}}</span></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="col-md-4 offset-4">
+  <h2>Enter product data</h2>
+  <form name="form" (ngSubmit)="registerProduct()" #f="ngForm" novalidate>
+
+    <div>
+      <label>Code</label>
+      <input type="text" class="form-control"
+             name="code"
+             [(ngModel)]="productRegistration.code"
+             #code="ngModel"
+             id="code"
+             required
+      />
+      <div *ngIf="f.submitted && !code.valid" class="help-block">Code is required.</div>
+    </div>
+
+    <div>
+      <label>Name</label>
+      <input type="text" class="form-control"
+             name="name"
+             [(ngModel)]="productRegistration.name"
+             #name="ngModel"
+             id="name"
+             required
+      />
+      <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required.</div>
+    </div>
+
+    <div>
+      <label>Product Type</label>
+      <input type="text" class="form-control"
+             name="productType"
+             [(ngModel)]="productRegistration.productType"
+             #productType="ngModel"
+             id="productType"
+             required
+      />
+      <div *ngIf="f.submitted && !productType.valid" class="help-block">Product type is required.</div>
+    </div>
+
+    <div>
+      <label>Price</label>
+      <input type="number" class="form-control"
+             name="email"
+             [(ngModel)]="productRegistration.price"
+             #price="ngModel"
+             id="price"
+             required
+      />
+      <div *ngIf="f.submitted && !price.valid" class="help-block">Price is required.</div>
+    </div>
+
+    <br/>
+    <div class="form-group">
+      <button id="registerProductButton" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+  <br/>
+</div>
